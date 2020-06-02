@@ -109,7 +109,6 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html()
 
-
 browser.quit()
 
 if __name__ == "__main__":
