@@ -17,3 +17,10 @@ This project uses web scraping method to pull latest data about Mars from multip
    - [NASA LINK](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
  - SPACE FACTS Mars Facts
    - [SPACE FACTS LINK](https://space-facts.com/mars/)
+
+## Portfolio
+
+ - EDA image shows data relationships.
+   <p align="center">
+   <img src="">
+   </p>
