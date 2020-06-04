@@ -27,5 +27,5 @@ This project uses web scraping method to pull latest data about Mars from multip
    <img src="https://github.com/karenmxm/Mission-to-Mars/blob/master/Screenshot_1.png">
    </p>
    <p align="center">
-   <img src="">
+   <img src="https://github.com/karenmxm/Mission-to-Mars/blob/master/Screenshot_2.png">
    </p>
