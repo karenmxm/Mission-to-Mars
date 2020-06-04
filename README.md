@@ -20,7 +20,7 @@ This project uses web scraping method to pull latest data about Mars from multip
 
 ## Portfolio
 
- - EDA image shows data relationships.
+ - Website.
    <p align="center">
    <img src="">
    </p>
