@@ -21,6 +21,7 @@ This project uses web scraping method to pull latest data about Mars from multip
    - Bootstrap Jumbotron component
  
 ## Website
+
    <p align="center">
    <img src="https://github.com/karenmxm/Mission-to-Mars/blob/master/Screenshot_1.png">
    <img src="https://github.com/karenmxm/Mission-to-Mars/blob/master/Screenshot_2.png">
