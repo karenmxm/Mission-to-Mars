@@ -18,6 +18,7 @@ This project uses web scraping method to pull latest data about Mars from multip
  - SPACE FACTS Mars Facts
    - [SPACE FACTS LINK](https://space-facts.com/mars/)
  - Bootstrap stylesheet
+   - Bootstrap Jumbotron component
  
 ## Portfolio
 
