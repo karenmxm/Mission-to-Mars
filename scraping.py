@@ -111,6 +111,7 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html()
 
+
 def high_resolution_image (browser):
     
     # Visit High Resolution Images
@@ -137,9 +138,20 @@ def high_resolution_image (browser):
         title = h3.text
         
         mars_img = f'https://astrogeology.usgs.gov{href}'
+        browser.visit(mars_img)
+             
+        # Scrape page into Soup
+        html = browser.html
+        soup = BeautifulSoup(html, "html.parser")
+        
+        img_url_item = soup.select_one('img.wide-image').get('src')
+
+        
+        img_url = f'https://astrogeology.usgs.gov{img_url_item}'
+        
         
         high_resolution_img = {
-            "high_resolution_img": mars_img,
+            "high_resolution_img": img_url,
             "title": title}
         
         high_res_img.append(high_resolution_img)
@@ -148,7 +160,7 @@ def high_resolution_image (browser):
     browser.quit()
 
     # Return results
-    return high_res_img
+    return high_res_img 
 
 
 browser.quit()
