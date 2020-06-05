@@ -3,6 +3,7 @@ from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime as dt
+import time
 
 
 def scrape_all():
@@ -10,11 +11,6 @@ def scrape_all():
     # Initiate headless driver for deployment
     browser = Browser("chrome", executable_path="chromedriver", headless=True)
     news_title, news_paragraph = mars_news(browser)
-    img_1, title_1 = high_resolution_image_1(browser)
-    img_2, title_2 = high_resolution_image_2(browser)
-    img_3, title_3 = high_resolution_image_3(browser)
-    img_4, title_4 = high_resolution_image_4(browser)
-
 
     # Run all scraping functions and store results in dictionary
     data = {
@@ -23,14 +19,7 @@ def scrape_all():
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
         "last_modified": dt.datetime.now(),
-        "high_resolution_image_1": img_1,
-        "high_resolution_image_2": img_2,
-        "high_resolution_image_3": img_3,
-        "high_resolution_image_4": img_4,
-        "title_1": title_1,
-        "title_2": title_2,
-        "title_3": title_3,
-        "title_4": title_4
+        "high_resolution_image": high_resolution_image (browser)
     }
 
     browser.quit()
@@ -122,149 +111,44 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html()
 
-
-
-def high_resolution_image_1(browser):
+def high_resolution_image (browser):
     
-    # Set the executable path and initialize the chrome browser in splinter
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path)
-    # High Resolution Images
-    # Visit URL
+    # Visit High Resolution Images
+    
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
+    time.sleep(1)
 
-    full_image_elem = browser.find_by_css('img[alt ="Cerberus Hemisphere Enhanced thumbnail"]',wait_time=1)
-    full_image_elem.click()
-    
-    open_info_elem = browser.find_by_id('wide-image-toggle', wait_time=1)
-    open_info_elem.click()
-                
-    # Parse the resulting html with soup
+
+    # Scrape page into Soup
     html = browser.html
-    img_soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, "html.parser")
 
-    try: 
-        # Find the relative image url
-        img_url_rel_1 = img_soup.select_one('img.wide-image').get("src")
-        title_1 = img_soup.find('h2').get_text()
-
-    except AttributeError:
-        return None
-
-    # Use the base URL to create an absolute URL
-    high_img_url_1 = f'https://astrogeology.usgs.gov{img_url_rel_1}'
-
-    browser.quit()
-    return high_img_url_1, title_1
-
-
-def high_resolution_image_2(browser):
+    # Get the average temps
+    images = soup.find_all('div', class_ ='description')
     
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path)
-
-    # Visit URL
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(url)
-
-    full_image_elem = browser.find_by_css('img[alt ="Schiaparelli Hemisphere Enhanced thumbnail"]',wait_time=1)
-    full_image_elem.click()
+    high_res_img = []
+    # Iterate through each image
+    for image in images:
+        # Use Beautiful Soup's find() method to navigate and retrieve attributes
+        link = image.find('a')
+        h3 = link.find('h3')
+        href = link['href']
+        title = h3.text
         
-    open_info_elem = browser.find_by_id('wide-image-toggle', wait_time=1)
-    open_info_elem.click()
+        mars_img = f'https://astrogeology.usgs.gov{href}'
         
-    # Parse the resulting html with soup
-    html = browser.html
-    img_soup = BeautifulSoup(html, 'html.parser')
-
-    try: 
-        # Find the relative image url
-        img_url_rel_2 = img_soup.select_one('img.wide-image').get("src")
+        high_resolution_img = {
+            "high_resolution_img": mars_img,
+            "title": title}
         
-        title_2 = img_soup.find('h2').get_text()
+        high_res_img.append(high_resolution_img)
 
-    except AttributeError:
-        return None
-
-    # Use the base URL to create an absolute URL
-    high_img_url_2 = f'https://astrogeology.usgs.gov{img_url_rel_2}'
-
+    # Close the browser after scraping
     browser.quit()
 
-    return high_img_url_2, title_2
-
-
-def high_resolution_image_3(browser):
-    
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path)
-
-    # Visit URL
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(url)
-
-    full_image_elem = browser.find_by_css('img[alt ="Syrtis Major Hemisphere Enhanced thumbnail"]',wait_time=1)
-    full_image_elem.click()
-        
-    open_info_elem = browser.find_by_id('wide-image-toggle', wait_time=1)
-    open_info_elem.click()
-        
-    # Parse the resulting html with soup
-    html = browser.html
-    img_soup = BeautifulSoup(html, 'html.parser')
-
-    try: 
-        # Find the relative image url
-        img_url_rel_3 = img_soup.select_one('img.wide-image').get("src")
-
-        title_3 = img_soup.find('h2').get_text()
-
-    except AttributeError:
-        return None
-
-    # Use the base URL to create an absolute URL
-    high_img_url_3 = f'https://astrogeology.usgs.gov{img_url_rel_3}'
-
-    browser.quit()
-
-    return high_img_url_3, title_3
-
-
-def high_resolution_image_4(browser):
-    
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path)
-
-    # Visit URL
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(url)
-
-    full_image_elem = browser.find_by_css('img[alt ="Valles Marineris Hemisphere Enhanced thumbnail"]',wait_time=1)
-    full_image_elem.click()
-        
-    open_info_elem = browser.find_by_id('wide-image-toggle', wait_time=1)
-    open_info_elem.click()
-        
-    # Parse the resulting html with soup
-    html = browser.html
-    img_soup = BeautifulSoup(html, 'html.parser')
-
-    try: 
-        # Find the relative image url
-        img_url_rel_4 = img_soup.select_one('img.wide-image').get("src")
-
-        title_4 = img_soup.find('h2').get_text()
-
-    except AttributeError:
-        return None
-
-    # Use the base URL to create an absolute URL
-    high_img_url_4 = f'https://astrogeology.usgs.gov{img_url_rel_4}'
-
-    browser.quit()
-
-    return high_img_url_4, title_4
+    # Return results
+    return high_res_img
 
 
 browser.quit()
