@@ -13,13 +13,13 @@ This project uses web scraping method to pull latest data about Mars from multip
 
  - Images from
    - NASA Mars News 
-     - [NASA Link](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest)
+     - [From NASA](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest)
    - Featured Mars Image  
-     - [NASA’s Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
+     - [From NASA’s Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
    - Mars Facts
-     - [SPACE FACTS LINK](https://space-facts.com/mars/)
+     - [From SPACE FACTS](https://space-facts.com/mars/)
    - Mars Hemispheres
-     - [USGS](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
+     - [From USGS](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
  - HTML Styles
    - Bootstrap stylesheet
      - Bootstrap Jumbotron component
