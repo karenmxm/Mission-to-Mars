@@ -18,8 +18,8 @@ This project uses web scraping method to pull latest data about Mars from multip
      - [NASA’s Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
    - SPACE FACTS Mars Facts
      - [SPACE FACTS LINK](https://space-facts.com/mars/)
-   - USGS.gov
-     - [USGS LINK](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
+   - Mars Hemispheres
+     - [USGS](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
  - HTML Styles
    - Bootstrap stylesheet
      - Bootstrap Jumbotron component
