@@ -113,7 +113,7 @@
             
             <div class="row" id="mars-high-resolution-image"></div> 
                 <h2 style="text-align:center">Mars Hemispheres</h2> 
-                <!-- <ul style = "list-style:none;"> -->
+
                 {% for image in mars.high_resolution_image %}
                 
                 <div class="column">
@@ -122,12 +122,10 @@
                         class="img-responsive"
                         alt="Responsive image"
                     />
-
                     <h2>{{image['title']}} </h2>
                 </div>
             
                 {% endfor %}
-                <!-- </ul> --> 
             </div>
         </div>
     </body>
