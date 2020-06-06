@@ -145,11 +145,9 @@ def high_resolution_image (browser):
         soup = BeautifulSoup(html, "html.parser")
         
         img_url_item = soup.select_one('img.wide-image').get('src')
-
-        
+     
         img_url = f'https://astrogeology.usgs.gov{img_url_item}'
-        
-        
+               
         high_resolution_img = {
             "high_resolution_img": img_url,
             "title": title}
@@ -162,9 +160,7 @@ def high_resolution_image (browser):
     # Return results
     return high_res_img 
 
-
 browser.quit()
-
 
 if __name__ == "__main__":
     # If running as script, print scraped data
