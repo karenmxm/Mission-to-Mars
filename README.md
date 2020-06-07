@@ -13,7 +13,7 @@ This project uses web scraping method to pull latest data about Mars from multip
 
  - Images from
    - NASA Mars News 
-     - [From NASA](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest){:target="_blank"}
+     - [From NASA](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest){:target="_blank" rel="noopener"}
    - Featured Mars Image  
      - [From NASA’s Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
    - Mars Facts
