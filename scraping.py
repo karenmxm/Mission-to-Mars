@@ -29,6 +29,7 @@ def scrape_all():
 executable_path = {'executable_path': 'chromedriver'}
 browser = Browser('chrome', **executable_path)
 
+
 def mars_news(browser):
 
     # Visit the mars nasa news site
@@ -59,7 +60,6 @@ def mars_news(browser):
         return None, None
 
     return news_title, news_p
-
 
 
 def featured_image(browser):
@@ -117,8 +117,6 @@ def high_resolution_image (browser):
     # Visit High Resolution Images url
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
-    time.sleep(1)
-
 
     # Scrape page into Soup
     html = browser.html
