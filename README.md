@@ -23,6 +23,8 @@ This project uses web scraping method to pull latest data about Mars from multip
  - HTML Styles
    - Bootstrap stylesheet
      - Bootstrap Jumbotron component
+ - Table Stylesheet
+   - [w3school](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro)
  
 ## Missition-to-Mars Website
 
